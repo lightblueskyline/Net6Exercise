@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApi", "TodoApi\TodoApi.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApiMinimal", "TodoApiMinimal\TodoApiMinimal.csproj", "{B19E1E93-CD95-4BA4-B3D0-893BE0BB0B37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApiJS", "TodoApiJS\TodoApiJS.csproj", "{B80BDE00-5304-4C0A-A02B-3D1D82CB8C67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{B19E1E93-CD95-4BA4-B3D0-893BE0BB0B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B19E1E93-CD95-4BA4-B3D0-893BE0BB0B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B19E1E93-CD95-4BA4-B3D0-893BE0BB0B37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B80BDE00-5304-4C0A-A02B-3D1D82CB8C67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B80BDE00-5304-4C0A-A02B-3D1D82CB8C67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B80BDE00-5304-4C0A-A02B-3D1D82CB8C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B80BDE00-5304-4C0A-A02B-3D1D82CB8C67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{FD477B9B-3B71-4774-9552-E2CA8660FF81} = {A4EA7AB6-BB7E-4116-980E-260696A7C025}
 		{B19E1E93-CD95-4BA4-B3D0-893BE0BB0B37} = {A4EA7AB6-BB7E-4116-980E-260696A7C025}
+		{B80BDE00-5304-4C0A-A02B-3D1D82CB8C67} = {A4EA7AB6-BB7E-4116-980E-260696A7C025}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48140058-78BC-483C-BDB3-E43F681123DB}
