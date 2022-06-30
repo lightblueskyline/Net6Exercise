@@ -7,5 +7,6 @@
         // ? = from Non-Nullable to Nullable
         public string Name { get; set; } = null!; // 不允许为空值
         public decimal Price { get; set; } = 0;
+        public bool IsOnSale { get; set; } = false;
     }
 }

@@ -156,9 +156,8 @@ namespace TodoApi.Controllers
                 IsComplete = todoItem.IsComplete
             };
 
-        #region Specific type
-        [HttpGet("GetProducts")]
-        public List<Product> GetProducts() =>
+        #region Utility
+        private List<Product> GenerateListProduct() =>
             new List<Product>
             {
                 new Product
@@ -166,14 +165,59 @@ namespace TodoApi.Controllers
                     ID=111,
                     Name="AAA",
                     Price=111M,
+                    IsOnSale=true,
                 },
                 new Product
                 {
                     ID=112,
                     Name="BBB",
                     Price=112M,
+                    IsOnSale=false,
+                },
+                new Product
+                {
+                    ID=113,
+                    Name="CCC",
+                    Price=113M,
+                    IsOnSale=true,
                 },
             };
+        #endregion
+
+        #region Specific type
+        [HttpGet("GetProducts")]
+        public List<Product> GetProducts() =>
+            GenerateListProduct();
+        #endregion
+
+        #region IEnumerable<T> or IAsyncEnumerable<T>
+        [HttpGet("syncsale")]
+        public IEnumerable<Product> GetOnSaleProducts()
+        {
+            List<Product> listProduct = GenerateListProduct();
+
+            foreach (var item in listProduct)
+            {
+                if (item.IsOnSale)
+                {
+                    yield return item;
+                }
+            }
+        }
+
+        //[HttpGet("asyncsale")]
+        //public async IAsyncEnumerable<Product> GetOnSaleProductsAsync()
+        //{
+        //    List<Product> listProduct = GenerateListProduct();
+
+        //    await foreach (var item in listProduct)
+        //    {
+        //        if (item.IsOnSale)
+        //        {
+        //            yield return item;
+        //        }
+        //    }
+        //}
         #endregion
     }
 }
