@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Mime;
 using TodoApi.Models;
 
 namespace TodoApi.Controllers
@@ -218,6 +219,47 @@ namespace TodoApi.Controllers
         //        }
         //    }
         //}
+        #endregion
+
+        #region IActionResult type
+
+        #region Synchronous action
+        [HttpGet("GetProductByID/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Product))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)] // 未找到相关数据
+        public IActionResult GetProductByID(int id)
+        {
+            var listProdcut = GenerateListProduct();
+
+            if (!listProdcut.Any(x => x.ID == id))
+            {
+                return NotFound(); // 等同于 return new NotFoundResult();
+            }
+
+            var product = listProdcut.Select(x => x.ID == id).FirstOrDefault();
+
+            return Ok(product); // 等同于 return new OkObjectResult(product);
+        }
+        #endregion
+
+        #region Asynchronous action
+        //[HttpPost]
+        //[Consumes(MediaTypeNames.Application.Json)]
+        //[ProducesResponseType(StatusCodes.Status201Created)] // 由 CreatedAtAction 响应
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //public async Task<IActionResult> CreateProductAsync(Product product)
+        //{
+        //    if (product.Description.Contains("XYZ Widget"))
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    await _repository.AddProductAsync(product);
+
+        //    return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
+        //}
+        #endregion
+
         #endregion
     }
 }
