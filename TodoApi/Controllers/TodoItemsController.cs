@@ -289,5 +289,12 @@ namespace TodoApi.Controllers
         #endregion
 
         #endregion
+
+        #region JsonPatch in ASP.NET Core web API
+        /*
+         * 需要安装包 Microsoft.AspNetCore.Mvc.NewtonsoftJson
+         * AddNewtonsoftJson() 会替换 System.Text.Json
+         */
+        #endregion
     }
 }
