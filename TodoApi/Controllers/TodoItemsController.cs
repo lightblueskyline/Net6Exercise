@@ -261,5 +261,29 @@ namespace TodoApi.Controllers
         #endregion
 
         #endregion
+
+        #region ActionResult<T> type
+        /*
+         * ActionResult<Product> 两种返回值
+         * 404 status code NotFound()
+         * 200 status code 同 Product 一起返回
+         */
+        [HttpGet("GetProductByID1/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<Product> GetProductByID1(int id)
+        {
+            var listProduct = GenerateListProduct();
+
+            if (!listProduct.Any(x => x.ID == id))
+            {
+                return NotFound();
+            }
+
+            var product = listProduct.Where(x => x.ID == id).Select(x => x);
+
+            return product.First();
+        }
+        #endregion
     }
 }
