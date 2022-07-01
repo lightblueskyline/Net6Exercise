@@ -157,6 +157,8 @@ namespace TodoApi.Controllers
                 IsComplete = todoItem.IsComplete
             };
 
+        #region Action return types
+
         #region Utility
         private List<Product> GenerateListProduct() =>
             new List<Product>
@@ -284,6 +286,8 @@ namespace TodoApi.Controllers
 
             return product.First();
         }
+        #endregion
+
         #endregion
     }
 }
