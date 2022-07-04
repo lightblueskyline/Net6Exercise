@@ -296,5 +296,10 @@ namespace TodoApi.Controllers
          * AddNewtonsoftJson() 会替换 System.Text.Json
          */
         #endregion
+
+        #region Format response data in ASP.NET Core Web API
+        [HttpGet("Version")]
+        public ContentResult GetVersion() => Content("V1.0.0.0");
+        #endregion
     }
 }
